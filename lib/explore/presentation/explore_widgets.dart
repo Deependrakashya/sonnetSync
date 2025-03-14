@@ -1,24 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:sonnet_sync/core/constants.dart';
-import 'package:sonnet_sync/home/presentation/controller/home_controller.dart';
+import 'package:sonnet_sync/explore/presentation/controller/explore_controller.dart';
 
-class HomeWidgets {
+class ExploreWidgets {
   ColorsLight colorsLight = ColorsLight();
-  Widget title(String title, double? fontsize) {
-    return Text(
-      title,
-      style: TextStyle(
-        color: colorsLight.whiteSepia,
-        fontFamily: "handwritten",
-        fontWeight: FontWeight.bold,
-        fontSize: fontsize ?? 24,
-      ),
-    );
-  }
 
-  Widget textInput({required HomeController controller}) {
+  Widget textInput({required ExploreController controller}) {
     return Stack(
       alignment: AlignmentDirectional.centerStart,
       children: [
@@ -80,66 +67,6 @@ class HomeWidgets {
           ),
         ),
       ],
-    );
-  }
-
-  Widget Favourites({
-    required String title,
-    String? author,
-    String? description,
-  }) {
-    return Container(
-      constraints: BoxConstraints(minHeight: 100, minWidth: 300),
-      // clipBehavior: Clip.,
-      decoration: BoxDecoration(
-        color: colorsLight.lightSepia,
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: Colors.black, width: 1),
-        boxShadow: [
-          BoxShadow(
-            offset: Offset.fromDirection(.2),
-            color: Colors.white,
-            spreadRadius: 1,
-            blurRadius: 5,
-          ),
-        ],
-      ),
-      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-      padding: EdgeInsets.all(5),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            title,
-            style: TextStyle(
-              color: colorsLight.darkSepia,
-              fontFamily: "handText",
-              fontWeight: FontWeight.w900,
-              fontSize: 22,
-            ),
-          ),
-          SizedBox(height: 5),
-          Text(
-            author ?? '',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 12,
-              fontFamily: "handText",
-              fontWeight: FontWeight.w800,
-            ),
-          ),
-          SizedBox(height: 15),
-          Text(
-            description ?? '',
-            style: TextStyle(
-              color: Colors.black,
-              fontFamily: "handText",
-              fontWeight: FontWeight.w500,
-              fontSize: 14,
-            ),
-          ),
-        ],
-      ),
     );
   }
 }
