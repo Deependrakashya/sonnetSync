@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:sonnet_sync/core/constants.dart';
 import 'package:sonnet_sync/explore/presentation/explore_screen.dart';
 import 'package:sonnet_sync/home/presentation/home_screen.dart';
+import 'package:sonnet_sync/poem_details.dart/presentation/poem_details_screen.dart';
+import 'package:sonnet_sync/search_result/presentation/search_result.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,11 +19,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List screens = [HomeScreen(), ExploreScreen()];
+  List screens = [PoemDetailsScreen(), ExploreScreen()];
 
-  ColorsLight colorsLight = ColorsLight();
-
-  int currentPage = 1;
+  int currentPage = 0;
 
   void changePage(int index) {
     currentPage = index;
@@ -35,7 +35,7 @@ class _MyAppState extends State<MyApp> {
       title: 'Sonnet Sync',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: ColorsLight().darkSepia),
+        colorScheme: ColorScheme.fromSeed(seedColor: ColorsLight.darkSepia),
       ),
       home: Scaffold(
         body: screens[currentPage],
@@ -48,7 +48,7 @@ class _MyAppState extends State<MyApp> {
           child: BottomNavigationBar(
             currentIndex: currentPage,
 
-            backgroundColor: colorsLight.lightSepia,
+            backgroundColor: ColorsLight.lightSepia,
             onTap: (index) {
               changePage(index);
               log(" index of pages $index");

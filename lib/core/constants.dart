@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class ColorsLight {
-  final Color darkSepia = Color(0xff714214);
-  final Color lightSepia = Color(0xffc4b090);
-  final Color whiteSepia = Color(0xffdbd1c9);
+  static Color darkSepia = Color(0xff714214);
+  static Color lightSepia = Color(0xffc4b090);
+  static Color whiteSepia = Color(0xffdbd1c9);
 }
 
 class ColorsDark {

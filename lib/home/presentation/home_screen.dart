@@ -8,14 +8,13 @@ import 'package:sonnet_sync/home/presentation/home_widgets.dart';
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
-  ColorsLight colorsLight = ColorsLight();
   HomeWidgets homeWidgets = HomeWidgets();
   HomeController homeController = HomeController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: colorsLight.darkSepia,
+      backgroundColor: ColorsLight.darkSepia,
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(
@@ -41,7 +40,7 @@ class HomeScreen extends StatelessWidget {
                             },
                             icon: Icon(
                               CupertinoIcons.search_circle_fill,
-                              color: colorsLight.whiteSepia,
+                              color: ColorsLight.whiteSepia,
                               size: 35,
                             ),
                           ),

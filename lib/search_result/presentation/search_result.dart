@@ -1,16 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sonnet_sync/core/constants.dart';
 import 'package:sonnet_sync/explore/presentation/controller/explore_controller.dart';
 import 'package:sonnet_sync/explore/presentation/explore_widgets.dart';
-import 'package:sonnet_sync/home/presentation/home_widgets.dart';
+import 'package:sonnet_sync/search_result/presentation/search_widget.dart';
 
-class ExploreScreen extends StatelessWidget {
-  ExploreScreen({super.key});
-
-  ExploreWidgets exploreWidgets = ExploreWidgets();
-  HomeWidgets homeWidgets = HomeWidgets();
+class SearchResult extends StatelessWidget {
+  SearchResult({super.key});
+  SearchWidget searchWidget = SearchWidget();
   ExploreController exploreController = ExploreController();
+  ExploreWidgets exploreWidgets = ExploreWidgets();
 
   @override
   Widget build(BuildContext context) {
@@ -25,21 +23,37 @@ class ExploreScreen extends StatelessWidget {
                 margin: EdgeInsets.all(10),
                 child: exploreWidgets.textInput(controller: exploreController),
               ),
-              SizedBox(height: 5),
+
               Container(
-                height: 40,
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 5,
-                  itemBuilder: (index, context) {
-                    return exploreWidgets.Authors("autherNameauther");
-                  },
+                margin: EdgeInsets.symmetric(horizontal: 10),
+                child: Text(
+                  "Apply Filters :",
+                  style: TextStyle(
+                    color: ColorsLight.whiteSepia,
+                    fontFamily: "handText",
+                    fontWeight: FontWeight.w900,
+                  ),
                 ),
               ),
-              SizedBox(height: 20),
-              homeWidgets.title("Suggestions for you", 20),
-              SizedBox(height: 15),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    searchWidget.FilterButton(
+                      title: 'by Authors',
+                      ischecked: true,
+                    ),
+                    searchWidget.FilterButton(
+                      title: 'by title',
+                      ischecked: false,
+                    ),
+                    searchWidget.FilterButton(
+                      title: 'everywhere',
+                      ischecked: false,
+                    ),
+                  ],
+                ),
+              ),
 
               Container(
                 child: ListView.builder(

@@ -5,12 +5,11 @@ import 'package:sonnet_sync/core/constants.dart';
 import 'package:sonnet_sync/home/presentation/controller/home_controller.dart';
 
 class HomeWidgets {
-  ColorsLight colorsLight = ColorsLight();
   Widget title(String title, double? fontsize) {
     return Text(
       title,
       style: TextStyle(
-        color: colorsLight.whiteSepia,
+        color: ColorsLight.whiteSepia,
         fontFamily: "handwritten",
         fontWeight: FontWeight.bold,
         fontSize: fontsize ?? 24,
@@ -27,9 +26,9 @@ class HomeWidgets {
           child: TextField(
             textAlign: TextAlign.start,
             textDirection: TextDirection.ltr,
-            cursorColor: colorsLight.whiteSepia,
+            cursorColor: ColorsLight.whiteSepia,
             style: TextStyle(
-              color: colorsLight.whiteSepia,
+              color: ColorsLight.whiteSepia,
               fontFamily: "handwritten",
               fontWeight: FontWeight.bold,
             ),
@@ -37,7 +36,7 @@ class HomeWidgets {
             decoration: InputDecoration(
               hintText: "Search Poem",
               hintStyle: TextStyle(
-                color: colorsLight.whiteSepia,
+                color: ColorsLight.whiteSepia,
                 fontSize: 14,
                 fontFamily: "handwritten",
               ),
@@ -46,21 +45,21 @@ class HomeWidgets {
                   topLeft: Radius.circular(20),
                   bottomLeft: Radius.circular(20),
                 ),
-                borderSide: BorderSide(color: colorsLight.whiteSepia, width: 2),
+                borderSide: BorderSide(color: ColorsLight.whiteSepia, width: 2),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20),
                   bottomLeft: Radius.circular(20),
                 ),
-                borderSide: BorderSide(color: colorsLight.whiteSepia, width: 2),
+                borderSide: BorderSide(color: ColorsLight.whiteSepia, width: 2),
               ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20),
                   bottomLeft: Radius.circular(20),
                 ),
-                borderSide: BorderSide(color: colorsLight.whiteSepia, width: 2),
+                borderSide: BorderSide(color: ColorsLight.whiteSepia, width: 2),
               ),
             ),
           ),
@@ -74,7 +73,7 @@ class HomeWidgets {
             },
             icon: Icon(
               Icons.cancel_rounded,
-              color: colorsLight.whiteSepia,
+              color: ColorsLight.whiteSepia,
               size: 30,
             ),
           ),
@@ -92,7 +91,7 @@ class HomeWidgets {
       constraints: BoxConstraints(minHeight: 100, minWidth: 300),
       // clipBehavior: Clip.,
       decoration: BoxDecoration(
-        color: colorsLight.lightSepia,
+        color: ColorsLight.lightSepia,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(color: Colors.black, width: 1),
         boxShadow: [
@@ -112,7 +111,7 @@ class HomeWidgets {
           Text(
             title,
             style: TextStyle(
-              color: colorsLight.darkSepia,
+              color: ColorsLight.darkSepia,
               fontFamily: "handText",
               fontWeight: FontWeight.w900,
               fontSize: 22,
