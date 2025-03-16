@@ -3,7 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:sonnet_sync/core/constants.dart';
 
 class PoemDetailsScreen extends StatelessWidget {
-  const PoemDetailsScreen({super.key});
+  final String title;
+  final String authorName;
+  final String poem;
+  PoemDetailsScreen({
+    super.key,
+    required this.title,
+    required this.authorName,
+    required this.poem,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +23,10 @@ class PoemDetailsScreen extends StatelessWidget {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     IconButton(
                       onPressed: () {},
@@ -26,14 +36,20 @@ class PoemDetailsScreen extends StatelessWidget {
                         size: 30,
                       ),
                     ),
-                    Text(
-                      'Author Name ',
-                      style: TextStyle(
-                        color: ColorsLight.whiteSepia,
-                        fontFamily: "handwritten",
-                        overflow: TextOverflow.ellipsis,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w900,
+                    Container(
+                      width: MediaQuery.of(context).size.width * .7,
+                      alignment: Alignment.centerLeft,
+
+                      height: 40,
+                      child: Text(
+                        authorName,
+                        style: TextStyle(
+                          color: ColorsLight.whiteSepia,
+                          fontFamily: "handwritten",
+                          overflow: TextOverflow.ellipsis,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w900,
+                        ),
                       ),
                     ),
                   ],
@@ -58,13 +74,16 @@ class PoemDetailsScreen extends StatelessWidget {
                     border: Border.all(width: 1, color: ColorsLight.whiteSepia),
                   ),
                   width: MediaQuery.of(context).size.width * .9,
+                  constraints: BoxConstraints(
+                    minHeight: MediaQuery.of(context).size.height * .8,
+                  ),
 
                   child: Column(
                     spacing: 10,
                     children: [
                       SizedBox(height: 5),
                       Text(
-                        "Title of the poem ",
+                        title,
                         style: TextStyle(
                           color: ColorsLight.whiteSepia,
                           fontFamily: "handText",
@@ -74,30 +93,7 @@ class PoemDetailsScreen extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '''
-"Helen, thy beauty is to me"
-	"  Like those Nicean barks of yore,"
-	"That gently, o'er a perfumed sea,"
-	"  The weary, wayworn wanderer bore"
-	"  To his own native shore."
-
-	"On desperate seas long wont to roam,"
-	"  Thy hyacinth hair, thy classic face,"
-	"Thy Naiad airs have brought me home"
-	"  To the glory that was Greece,"
-	"To the grandeur that was Rome."
-	""
-	"Lo! in yon brilliant window niche,"
-	"  How statue-like I see thee stand,"
-	"  The agate lamp within thy hand!"
-	"Ah, Psyche, from the regions which"
-	"  Are Holy Land!" 
-  	"Lo! in yon brilliant window niche,"
-	"  How statue-like I see thee stand,"
-	"  The agate lamp within thy hand!"
-	"Ah, Psyche, from the regions which"
-	"  Are Holy Land!" 
-               ''',
+                        poem,
                         style: TextStyle(
                           color: ColorsLight.whiteSepia,
                           fontFamily: "handText",

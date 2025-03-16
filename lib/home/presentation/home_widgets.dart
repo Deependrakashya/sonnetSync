@@ -89,6 +89,7 @@ class HomeWidgets {
   }) {
     return Container(
       constraints: BoxConstraints(minHeight: 100, minWidth: 300),
+
       // clipBehavior: Clip.,
       decoration: BoxDecoration(
         color: ColorsLight.lightSepia,
@@ -104,7 +105,7 @@ class HomeWidgets {
         ],
       ),
       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-      padding: EdgeInsets.all(5),
+      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -129,6 +130,7 @@ class HomeWidgets {
           ),
           SizedBox(height: 15),
           Text(
+            maxLines: 3,
             description ?? '',
             style: TextStyle(
               color: Colors.black,

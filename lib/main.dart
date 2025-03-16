@@ -1,13 +1,16 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:sonnet_sync/core/constants.dart';
 import 'package:sonnet_sync/explore/presentation/explore_screen.dart';
 import 'package:sonnet_sync/home/presentation/home_screen.dart';
-import 'package:sonnet_sync/poem_details.dart/presentation/poem_details_screen.dart';
-import 'package:sonnet_sync/search_result/presentation/search_result.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  await Hive.openBox('poemsBox');
   runApp(MyApp());
 }
 
@@ -19,7 +22,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List screens = [PoemDetailsScreen(), ExploreScreen()];
+  List screens = [HomeScreen(), ExploreScreen()];
 
   int currentPage = 0;
 
@@ -31,7 +34,7 @@ class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Sonnet Sync',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -53,7 +56,6 @@ class _MyAppState extends State<MyApp> {
               changePage(index);
               log(" index of pages $index");
             },
-
             landscapeLayout: BottomNavigationBarLandscapeLayout.spread,
             showSelectedLabels: false,
             showUnselectedLabels: false,

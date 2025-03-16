@@ -1,16 +1,30 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sonnet_sync/core/constants.dart';
+import 'package:sonnet_sync/explore/domain/explore_repo.dart';
 import 'package:sonnet_sync/explore/presentation/controller/explore_controller.dart';
 import 'package:sonnet_sync/explore/presentation/explore_widgets.dart';
 import 'package:sonnet_sync/home/presentation/home_widgets.dart';
 
-class ExploreScreen extends StatelessWidget {
+class ExploreScreen extends StatefulWidget {
   ExploreScreen({super.key});
 
+  @override
+  State<ExploreScreen> createState() => _ExploreScreenState();
+}
+
+class _ExploreScreenState extends State<ExploreScreen> {
   ExploreWidgets exploreWidgets = ExploreWidgets();
+
   HomeWidgets homeWidgets = HomeWidgets();
+
   ExploreController exploreController = ExploreController();
+  @override
+  void initState() {
+    exploreController.fetchAuthors();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,17 +40,21 @@ class ExploreScreen extends StatelessWidget {
                 child: exploreWidgets.textInput(controller: exploreController),
               ),
               SizedBox(height: 5),
-              Container(
-                height: 40,
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 5,
-                  itemBuilder: (index, context) {
-                    return exploreWidgets.Authors("autherNameauther");
-                  },
-                ),
-              ),
+              Obx(() {
+                return Container(
+                  height: 40,
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: exploreController.authorsList.length,
+                    itemBuilder: (context, index) {
+                      return exploreWidgets.Authors(
+                        exploreController.authorsList[index].toString(),
+                      );
+                    },
+                  ),
+                );
+              }),
               SizedBox(height: 20),
               homeWidgets.title("Suggestions for you", 20),
               SizedBox(height: 15),
