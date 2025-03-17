@@ -14,27 +14,28 @@ class Authors {
   }
 }
 
-class Suggestions {
-  String? title;
-  String? author;
-  List<String>? lines;
-  String? linecount;
+class Poem {
+  final String title;
+  final String author;
+  final List<String> lines;
 
-  Suggestions({this.title, this.author, this.lines, this.linecount});
+  Poem({required this.title, required this.author, required this.lines});
 
-  Suggestions.fromJson(Map<String, dynamic> json) {
-    title = json['title'];
-    author = json['author'];
-    lines = json['lines'].cast<String>();
-    linecount = json['linecount'];
+  factory Poem.fromJson(Map<String, dynamic> json) {
+    return Poem(
+      title: json['title'] ?? '',
+      author: json['author'] ?? '',
+      lines: List<String>.from(json['lines'] ?? []),
+    );
   }
+}
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['title'] = this.title;
-    data['author'] = this.author;
-    data['lines'] = this.lines;
-    data['linecount'] = this.linecount;
-    return data;
+class Suggestions {
+  final List<Poem> poems;
+
+  Suggestions({required this.poems});
+
+  factory Suggestions.fromJson(List<dynamic> jsonList) {
+    return Suggestions(poems: jsonList.map((e) => Poem.fromJson(e)).toList());
   }
 }

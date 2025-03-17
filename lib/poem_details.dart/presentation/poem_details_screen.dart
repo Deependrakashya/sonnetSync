@@ -1,17 +1,38 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:sonnet_sync/core/constants.dart';
+import 'package:sonnet_sync/home/presentation/controller/home_controller.dart';
 
-class PoemDetailsScreen extends StatelessWidget {
+class PoemDetailsScreen extends StatefulWidget {
   final String title;
   final String authorName;
-  final String poem;
+  final List<String> poem;
+
   PoemDetailsScreen({
     super.key,
     required this.title,
     required this.authorName,
     required this.poem,
+    required,
   });
+
+  @override
+  State<PoemDetailsScreen> createState() => _PoemDetailsScreenState();
+}
+
+class _PoemDetailsScreenState extends State<PoemDetailsScreen> {
+  void addFav() {
+    Hive.box('poem');
+  }
+
+  late String formattedPoem;
+  @override
+  void initState() {
+    formattedPoem = HomeController().formatPoem(widget.poem);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +50,9 @@ class PoemDetailsScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.back();
+                      },
                       icon: Icon(
                         CupertinoIcons.back,
                         color: ColorsLight.whiteSepia,
@@ -42,10 +65,10 @@ class PoemDetailsScreen extends StatelessWidget {
 
                       height: 40,
                       child: Text(
-                        authorName,
+                        widget.authorName,
                         style: TextStyle(
                           color: ColorsLight.whiteSepia,
-                          fontFamily: "handwritten",
+                          fontFamily: "handText",
                           overflow: TextOverflow.ellipsis,
                           fontSize: 20,
                           fontWeight: FontWeight.w900,
@@ -69,11 +92,11 @@ class PoemDetailsScreen extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 10),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(30),
                     color: ColorsLight.darkSepia,
                     border: Border.all(width: 1, color: ColorsLight.whiteSepia),
                   ),
-                  width: MediaQuery.of(context).size.width * .9,
+                  width: MediaQuery.of(context).size.width * .95,
                   constraints: BoxConstraints(
                     minHeight: MediaQuery.of(context).size.height * .8,
                   ),
@@ -83,22 +106,35 @@ class PoemDetailsScreen extends StatelessWidget {
                     children: [
                       SizedBox(height: 5),
                       Text(
-                        title,
+                        widget.title,
+                        textAlign: TextAlign.center,
+                        // maxLines: 3,
                         style: TextStyle(
                           color: ColorsLight.whiteSepia,
                           fontFamily: "handText",
-                          overflow: TextOverflow.ellipsis,
+                          // overflow: TextOverflow.ellipsis,
                           fontSize: 20,
                           fontWeight: FontWeight.w900,
                         ),
                       ),
                       Text(
-                        poem,
+                        textAlign: TextAlign.center,
+                        formattedPoem,
                         style: TextStyle(
                           color: ColorsLight.whiteSepia,
                           fontFamily: "handText",
 
                           fontSize: 16,
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        "* * * * * * * * * * * * * * ",
+                        style: TextStyle(
+                          color: ColorsLight.whiteSepia,
+                          fontFamily: "handText",
+
+                          fontSize: 20,
                         ),
                       ),
                     ],

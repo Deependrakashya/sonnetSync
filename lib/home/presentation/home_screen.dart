@@ -78,9 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               homeController.randomPoem.value.title.toString(),
                           authorName:
                               homeController.randomPoem.value.author.toString(),
-                          poem: homeController.formatPoem(
-                            homeController.randomPoem.value.lines!.toList(),
-                          ),
+                          poem: homeController.randomPoem.value.lines!.toList(),
                         ),
                       );
                     },

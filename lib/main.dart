@@ -46,7 +46,7 @@ class _MyAppState extends State<MyApp> {
           decoration: BoxDecoration(
             color: Colors.amber,
 
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(30),
           ),
           child: BottomNavigationBar(
             currentIndex: currentPage,

@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 import 'package:sonnet_sync/core/constants.dart';
 import 'package:sonnet_sync/home/presentation/controller/home_controller.dart';
+import 'package:sonnet_sync/search_result/presentation/search_result.dart';
 
 class HomeWidgets {
   Widget title(String title, double? fontsize) {
@@ -25,11 +27,20 @@ class HomeWidgets {
           height: 40,
           child: TextField(
             textAlign: TextAlign.start,
+            textInputAction: TextInputAction.search,
+
+            onSubmitted: (value) {
+              Get.to(
+                transition: Transition.fade,
+                duration: Duration(seconds: 2),
+                SearchResult(query: value),
+              );
+            },
             textDirection: TextDirection.ltr,
             cursorColor: ColorsLight.whiteSepia,
             style: TextStyle(
               color: ColorsLight.whiteSepia,
-              fontFamily: "handwritten",
+              fontFamily: "handText",
               fontWeight: FontWeight.bold,
             ),
             cursorHeight: 20,
@@ -38,26 +49,26 @@ class HomeWidgets {
               hintStyle: TextStyle(
                 color: ColorsLight.whiteSepia,
                 fontSize: 14,
-                fontFamily: "handwritten",
+                fontFamily: "handText",
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  bottomLeft: Radius.circular(20),
+                  topLeft: Radius.circular(30),
+                  bottomLeft: Radius.circular(30),
                 ),
                 borderSide: BorderSide(color: ColorsLight.whiteSepia, width: 2),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  bottomLeft: Radius.circular(20),
+                  topLeft: Radius.circular(30),
+                  bottomLeft: Radius.circular(30),
                 ),
                 borderSide: BorderSide(color: ColorsLight.whiteSepia, width: 2),
               ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  bottomLeft: Radius.circular(20),
+                  topLeft: Radius.circular(30),
+                  bottomLeft: Radius.circular(30),
                 ),
                 borderSide: BorderSide(color: ColorsLight.whiteSepia, width: 2),
               ),
@@ -93,7 +104,7 @@ class HomeWidgets {
       // clipBehavior: Clip.,
       decoration: BoxDecoration(
         color: ColorsLight.lightSepia,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(30),
         border: Border.all(color: Colors.black, width: 1),
         boxShadow: [
           BoxShadow(
@@ -110,6 +121,7 @@ class HomeWidgets {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
+            textAlign: TextAlign.center,
             title,
             style: TextStyle(
               color: ColorsLight.darkSepia,
@@ -120,6 +132,7 @@ class HomeWidgets {
           ),
           SizedBox(height: 5),
           Text(
+            textAlign: TextAlign.center,
             author ?? '',
             style: TextStyle(
               color: Colors.black,
@@ -131,6 +144,7 @@ class HomeWidgets {
           SizedBox(height: 15),
           Text(
             maxLines: 3,
+            textAlign: TextAlign.center,
             description ?? '',
             style: TextStyle(
               color: Colors.black,

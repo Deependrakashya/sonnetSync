@@ -44,14 +44,15 @@ class HomeController extends GetxController {
 
   String formatPoem(List<dynamic> rawPoem) {
     // log(rawPoem.toString());
-    String poem = rawPoem.join(" "); // Convert list to a single string
-    poem = poem.replaceAll(RegExp(r'\[|\]'), ''); // Remove brackets
-    poem = poem.replaceAll(
-      RegExp(r'\s*,,\s*|\s*;\s*'),
-      '\n',
-    ); // Replace ,, (with optional spaces) with a newline
-    poem = poem.trim(); // Remove extra spaces
 
-    return poem;
+    // String poem = rawPoem.join(" "); // Convert list to a single string
+    // poem = poem.replaceAll(RegExp(r'\[|\]'), ''); // Remove brackets
+    // poem = poem.replaceAll(
+    //   RegExp(r'\s*,,\s*|\s*;\s*'),
+    //   '\n',
+    // ); // Replace ,, (with optional spaces) with a newline
+    // poem = poem.trim(); // Remove extra spaces
+
+    return rawPoem.join("\n");
   }
 }
