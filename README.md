@@ -1,16 +1,42 @@
-# sonnet_sync
+# 📜 Poetry Keepsake — Flutter Poetry App
 
-A new Flutter project.
+**TL;DR:** A sleek Flutter app for reading, saving, and getting personalized poem recommendations.  
+Built with **GetX** for state management and **AdMob** for monetization without compromising user experience.  
+👉 [Download APK (latest release)](https://github.com/Deependrakashya/sonnetSync/releases/download/release/Sonnet.Sync.apk)
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Overview
+Poetry Keepsake is a Flutter-based poetry app designed to deliver a refined reading experience.  
+It features personalized poem recommendations, a favorites system, and a minimalist UI optimized for readability and engagement.
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🔑 Key Features
+- 💫 Personalized poem recommendations  
+- ❤️ Add to favorites & manage saved poems  
+- 🧠 Built using **GetX** for reactive state management  
+- 🌙 Clean, distraction-free reading interface  
+- ⚡ Optimized performance & fast load times  
+- 📶 Offline caching for recently viewed poems  
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## 🧰 Tech Stack
+| Category | Technology |
+|-----------|-------------|
+| Framework | Flutter |
+| State Management | GetX |
+| Monetization | Google AdMob |
+| Local Storage | Hive / SQLite |
+| UI | Material Design 3 |
+| Language | Dart |
+
+---
+
+## 🛠️ Installation (Developers)
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Deependrakashya/sonnetSync.git
+   cd sonnetSync
+   flutter pub get && flutter run
