@@ -1,13 +1,13 @@
-# 📜 Poetry Keepsake — Flutter Poetry App
+# 📜 Sonnet Sync —  Poetry App
 
-**TL;DR:** A sleek Flutter app for reading, saving, and getting personalized poem recommendations.  
+  A Sonnet Sync —  Poetry App for reading, saving, and getting personalized poem recommendations.  
 Built with **GetX** for state management and **AdMob** for monetization without compromising user experience.  
 👉 [Download APK (latest release)](https://github.com/Deependrakashya/sonnetSync/releases/download/release/Sonnet.Sync.apk)
 
 ---
 
 ## 🚀 Overview
-Poetry Keepsake is a Flutter-based poetry app designed to deliver a refined reading experience.  
+Sonnet Sync is a Flutter-based poetry app designed to deliver a refined reading experience.  
 It features personalized poem recommendations, a favorites system, and a minimalist UI optimized for readability and engagement.
 
 ---
